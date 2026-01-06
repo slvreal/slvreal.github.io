@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Hacker-themed bio page" />
+  <title>YOUR_NAME // terminal.bio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Matrix background -->
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span class="brand__text">YOUR_NAME</span>
+        <span class="brand__sep">::</span>
+        <span class="brand__sub">terminal.bio</span>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about" class="nav__link">ABOUT</a>
+        <a href="#skills" class="nav__link">SKILLS</a>
+        <a href="#projects" class="nav__link">PROJECTS</a>
+        <a href="#contact" class="nav__link">CONTACT</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn" id="toggleMatrix" type="button" title="Toggle matrix background">
+          MATRIX: <span id="matrixState">ON</span>
+        </button>
+        <button class="btn" id="toggleTheme" type="button" title="Toggle glow intensity">
+          GLOW: <span id="glowState">HIGH</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO TERMINAL -->
+    <section class="terminal reveal" id="top">
+      <div class="terminal__bar">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+        <span class="terminal__title">root@localhost:~</span>
+      </div>
+
+      <div class="terminal__body">
+        <p class="line">
+          <span class="prompt">root@localhost</span><span class="colon">:</span><span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd">whoami</span>
+        </p>
+        <p class="line output glow">
+          <span class="gradient">YOUR_NAME</span> — developer // builder // shipper
+        </p>
+
+        <p class="line">
+          <span class="prompt">root@localhost</span><span class="colon">:</span><span class="path">~</span><span class="dollar">$</span>
+          <span class="cmd">cat intro.txt</span>
+        </p>
+
+        <p class="line output">
+          <span id="typing"></span><span class="cursor">█</span>
+        </p>
+
+        <div class="grid">
+          <div class="panel">
+            <div class="panel__title">[ SYSTEM STATUS ]</div>
+            <div class="kv">
+              <div><span class="k">ROLE</span> <span class="v">FULL-STACK DEV</span></div>
+              <div><span class="k">LOCATION</span> <span class="v">CITY, COUNTRY</span></div>
+              <div><span class="k">UPTIME</span> <span class="v" id="uptime">00:00:00</span></div>
+              <div><span class="k">SECURITY</span> <span class="v ok">GREEN</span></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__title">[ QUICK LINKS ]</div>
+            <div class="links">
+              <a href="https://github.com/" target="_blank" rel="noreferrer">GITHUB</a>
+              <a href="https://linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN</a>
+              <a href="https://x.com/" target="_blank" rel="noreferrer">X</a>
+              <a href="#projects">PROJECTS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="logbox" aria-label="System log">
+          <div class="panel__title">[ LIVE LOG ]</div>
+          <pre class="log" id="log"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="block reveal" id="about">
+      <h2 class="h2">ABOUT</h2>
+      <div class="card">
+        <p>
+          I build clean, fast web experiences with a terminal mindset: small, sharp, reliable.
+          I like automation, dashboards, bots, and UI that feels “instant”.
+        </p>
+        <ul class="list">
+          <li><span class="tag">+</span> performance-first</li>
+          <li><span class="tag">+</span> UI/UX minded</li>
+          <li><span class="tag">+</span> automation + tooling</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="block reveal" id="skills">
+      <h2 class="h2">SKILLS</h2>
+      <div class="columns">
+        <div class="card">
+          <div class="meter">
+            <div class="meter__row"><span>HTML</span><span>90%</span></div>
+            <div class="bar"><span style="--w:90%"></span></div>
+          </div>
+          <div class="meter">
+            <div class="meter__row"><span>CSS</span><span>85%</span></div>
+            <div class="bar"><span style="--w:85%"></span></div>
+          </div>
+          <div class="meter">
+            <div class="meter__row"><span>JAVASCRIPT</span><span>80%</span></div>
+            <div class="bar"><span style="--w:80%"></span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="muted">TOOLCHAIN</p>
+          <div class="chips">
+            <span class="chip">GIT</span>
+            <span class="chip">NODE</span>
+            <span class="chip">REST</span>
+            <span class="chip">SQL</span>
+            <span class="chip">AUTOMATION</span>
+            <span class="chip">FIGMA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="block reveal" id="projects">
+      <h2 class="h2">PROJECTS</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 class="h3">[01] PORTFOLIO_TERMINAL</h3>
+          <p class="muted">A terminal-style portfolio with matrix background and CRT effects.</p>
+          <div class="chips">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span>
+          </div>
+          <div class="row">
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">LIVE</a>
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">CODE</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="h3">[02] AUTOMATION_DASH</h3>
+          <p class="muted">Automations + alerts dashboard with clean UI and logs.</p>
+          <div class="chips">
+            <span class="chip">JS</span><span class="chip">APIS</span><span class="chip">UI</span>
+          </div>
+          <div class="row">
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">LIVE</a>
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">CODE</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="h3">[03] UI_KIT</h3>
+          <p class="muted">Reusable components, tokens, and layouts for consistent design.</p>
+          <div class="chips">
+            <span class="chip">DESIGN</span><span class="chip">FIGMA</span>
+          </div>
+          <div class="row">
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">PREVIEW</a>
+            <a class="linkbtn" href="#" target="_blank" rel="noreferrer">FILE</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="block reveal" id="contact">
+  <h2 class="h2">CONTACTS</h2>
+
+  <div class="columns">
+    <!-- Telegram -->
+    <div class="card">
+      <p class="muted">TELEGRAM</p>
+
+      <div class="copyline">
+        <code id="tgHandle">@yourusername</code>
+        <button class="btn" id="copyTg" type="button">COPY</button>
+      </div>
+
+      <div class="row">
+        <a class="linkbtn" id="tgLink" href="https://t.me/yourusername" target="_blank" rel="noreferrer">
+          OPEN_TG
+        </a>
+      </div>
+
+      <p class="muted tiny">DM is open for collabs / questions.</p>
+    </div>
+
+    <!-- Phone -->
+    <div class="card">
+      <p class="muted">PHONE</p>
+
+      <div class="copyline">
+        <code id="phoneNumber">+1 (555) 123-4567</code>
+        <button class="btn" id="copyPhone" type="button">COPY</button>
+      </div>
+
+      <div class="row">
+        <a class="linkbtn" id="phoneLink" href="tel:+15551234567">CALL</a>
+        <a class="linkbtn" id="smsLink" href="sms:+15551234567">SMS</a>
+      </div>
+
+      <p class="muted tiny">If I don’t answer, leave a message.</p>
+    </div>
+  </div>
+</section>
+
+
+    <footer class="footer">
+      <span>© <span id="year"></span> YOUR_NAME</span>
+      <a href="#top" class="muted">BACK_TO_TOP ↑</a>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
